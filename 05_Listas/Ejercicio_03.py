@@ -21,7 +21,9 @@ cantidad_impares = len(numeros_impares)
 print(f"Cantidad de numeros pares es de {cantidad_pares} y la de numeros impares es de {cantidad_impares}")
 print("\n")
 print("Los numeros pares son: ")
-print(numeros_pares)
+for numero in numeros_pares :
+    print(f"> {numero}")
 print("\n")
 print("Los numeros impares son: ")
-print(numeros_impares)
+for numero in numeros_impares :
+    print(f"> {numero}")

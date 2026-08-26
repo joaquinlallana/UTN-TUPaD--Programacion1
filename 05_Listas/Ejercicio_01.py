@@ -8,7 +8,7 @@ for nota in notas :
     sumatoria += nota
     if nota > nota_alta :
         nota_alta = nota
-    elif nota < nota_baja : 
+    if nota < nota_baja :
         nota_baja = nota
 
 promedio = float( sumatoria / 10)

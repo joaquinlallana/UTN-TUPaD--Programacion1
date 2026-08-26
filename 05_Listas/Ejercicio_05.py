@@ -23,5 +23,7 @@ elif opcion == 2 :
         print("---ESTUDIANTE NO ENCONTRADOO---")
         print("El nombre ingresado no se encuentra en la lista de estudiantes.")
 
-print(f"La lista de estudiantes actualizada quedo conformada de la siguiente manera:\n{estudiantes}")
+print("La lista de estudiantes actualizada quedo conformada de la siguiente manera:")
+for estudiante in estudiantes :
+    print(f"> {estudiante}")
 

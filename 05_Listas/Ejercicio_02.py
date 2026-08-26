@@ -9,9 +9,11 @@ while cantidad <= cantidad_productos :
     lista_productos.append(producto)
     cantidad += 1
 
-lista_productos.sort()
+lista_productos = sorted(lista_productos)
 
-print(f"Los productos ingresados a la lista son: {lista_productos}")
+print("Los productos ingresados a la lista, ordenados alfabéticamente, son: ")
+for producto in lista_productos :
+    print(f"> {producto}")
 
 producto_a_eliminar = input("Ingrese que producto desea eliminar: ")
 
@@ -22,5 +24,6 @@ else:
     print("El producto no se encuentra en la lista")
 
 print("La lista al final quedaria con los siguientes productos: ")
-print(lista_productos)
+for producto in lista_productos :
+    print(f"> {producto}")
 

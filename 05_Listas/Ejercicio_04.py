@@ -8,4 +8,6 @@ for i in datos :
     else : 
         nueva_lista.append(i)
 
-print(nueva_lista)
+print("La lista sin elementos repetidos es: ")
+for elemento in nueva_lista :
+    print(f"> {elemento}")
