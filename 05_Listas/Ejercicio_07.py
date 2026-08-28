@@ -12,7 +12,7 @@ for i in pronostico_semana :
     for j in i :
         if j < temperatura_mas_baja : 
             temperatura_mas_baja = j
-        elif j > temperatura_mas_alta : 
+        if j > temperatura_mas_alta : 
             temperatura_mas_alta = j
         else : 
             pass
@@ -41,3 +41,5 @@ match dia_mayor_amplitud:
         print(f"El dia de mayor amplitud fue el Viernes con una maxima de {pronostico_semana[5][0]} y la minima es de {pronostico_semana[5][1]}")
     case 6:
         print(f"El dia de mayor amplitud fue el Sabado con una maxima de {pronostico_semana[6][0]} y la minima es de {pronostico_semana[6][1]}")
+
+print(f"La temperatura mas alta fue de {temperatura_mas_alta}, mientras que la temperatura mas baja fue de {temperatura_mas_baja}")

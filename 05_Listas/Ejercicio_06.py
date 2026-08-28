@@ -4,4 +4,5 @@ ultimo_numero = numeros.pop()
 
 numeros.insert(0,ultimo_numero)
 
-print(numeros)
+for i in numeros :
+    print(i)
