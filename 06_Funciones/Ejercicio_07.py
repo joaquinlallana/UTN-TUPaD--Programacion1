@@ -1,11 +1,19 @@
 #Definición de la función
 def operaciones_basicas(a, b):
-    return a + b , a - b, a * b , a / b
+    return a + b, a - b, a * b, a / b
 
 #Programa principal
 numero1 = int(input("Por favor, ingrese el primer número: "))
 numero2 = int(input("Por favor, ingrese el segundo número: "))
 
-resultado = operaciones_basicas(numero1, numero2)
+while numero2 == 0:
+    print("El segundo número no puede ser 0, ya que no se puede dividir por cero.")
+    numero2 = int(input("Por favor, ingrese el segundo número nuevamente: "))
 
-print(f"Los resultados de las operaciones basicas son: \n Suma: {resultado[0]} \n Resta: {resultado [1]} \n Multiplicación: {resultado[2]} \n División: {resultado[3]}")
+suma, resta, multiplicacion, division = operaciones_basicas(numero1, numero2)
+
+print("Los resultados de las operaciones básicas son:")
+print(f"Suma: {suma}")
+print(f"Resta: {resta}")
+print(f"Multiplicación: {multiplicacion}")
+print(f"División: {division:.2f}")

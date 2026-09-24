@@ -1,7 +1,6 @@
-#Definicion de la función
+#Definición de la función
 def imprimir_hola_mundo():
-    return print("Hola Mundo!")
+    return "Hola Mundo!"
 
 #Programa principal
-
-imprimir_hola_mundo()
+print(imprimir_hola_mundo())

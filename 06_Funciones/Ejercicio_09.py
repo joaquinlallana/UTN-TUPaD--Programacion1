@@ -5,4 +5,4 @@ def celsius_a_fahrenheit(celsius):
 #Programa principal
 celsius_usuario = float(input("Por favor, ingrese la temperatura en grados Celsius: "))
 
-print(f"{celsius_usuario} grados Celsius son equivalentes a {celsius_a_fahrenheit(celsius_usuario)} grados Fahrenheit.")
+print(f"{celsius_usuario} grados Celsius son equivalentes a {celsius_a_fahrenheit(celsius_usuario):.2f} grados Fahrenheit.")
