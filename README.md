@@ -14,6 +14,7 @@ Cada carpeta es una unidad de la materia. Adentro están los ejercicios de esa u
 | `05_Listas` | Guardar varios datos juntos en listas y tablas |
 | `06_Funciones` | Armar bloques de código reutilizables |
 | `07_Datos_Complejos` | Diccionarios, conjuntos (`set`) y tuplas |
+| `08_Manejo_de_Errores` | Atrapar errores con `try` / `except` / `else` / `finally` |
 
 ## 📂 Ejercicios por unidad
 
@@ -92,6 +93,19 @@ Nuevas formas de guardar datos:
 | 08 | Menú para consultar y cargar stock de productos |
 | 09 | Agenda por día y hora (usa tuplas como clave) |
 | 10 | Da vuelta un diccionario: país → capital pasa a capital → país |
+
+### 08 — Manejo de Errores
+Cuando algo sale mal (por ejemplo, dividir por un texto o pedir un elemento que no existe), Python lanza un **error**. Con `try` / `except` el programa lo atrapa y sigue funcionando en vez de cortarse. `else` corre si no hubo error y `finally` corre siempre.
+
+| Ejercicio | Qué hace |
+|---|---|
+| 01 | Marca con comentarios los errores de un código y explica por qué ocurren |
+| 02 | Corrige esos errores validando los datos, sin usar excepciones |
+| 03 | Atrapa los errores con `try` / `except` |
+| 04 | Usa un `except` distinto para cada tipo de error |
+| 05 | Suma los bloques `else` y `finally` |
+| 06 | Pide un número y avisa si lo ingresado no es válido |
+| 07 | Igual que el 06, pero deja volver a intentar hasta ingresar un número válido |
 
 > Voy a ir sumando nuevas carpetas a medida que avance la cursada.
 
