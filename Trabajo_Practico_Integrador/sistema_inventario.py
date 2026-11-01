@@ -42,15 +42,24 @@ def mostrar_inventario(inventario):
         print(f"Herramienta: {producto['herramienta']}, Stock: {producto['cantidad']}")
 
 def consultar_stock(inventario):
-    # Función para consultar el stock de un producto específico
-    pass  # Implementar la lógica de consulta de stock
+    if len(inventario) == 0: 
+        print("No existe ninguna herramienta en el inventario.")
+        return
+    nombre_herramienta = input("Ingrese el nombre de la herramienta cuyo stock desea consultar: ")
+    herramienta = validar_nombre(nombre_herramienta)
+    for producto in inventario:
+        if producto['herramienta'].lower() == herramienta.lower() :
+            print(f"El artículo {producto['herramienta']} cuenta con un stock de {producto['cantidad']}")
+            return
+    print("La herramienta no se encuentra en el inventario.")
+
 
 def reporte_agotados(inventario):
-    #Funcion para mostrar las herramientas que estan sin stock
+    # Función para mostrar las herramientas que están sin stock
     contador = 0
 
     if len(inventario) == 0:
-        print("El inventario esta vacio.")
+        print("El inventario está vacío.")
         return
     for herramienta in inventario:
         if herramienta['cantidad'] == 0 : 
@@ -65,18 +74,67 @@ def reporte_agotados(inventario):
 
 def alta_producto(inventario):
     # Función para dar de alta un nuevo producto en el inventario
-    pass  # Implementar la lógica de alta de nuevo producto
+    nombre_herramienta = input("Ingrese el nombre de la herramienta que desea agregar al inventario: ")
+    nombre_herramienta = validar_nombre(nombre_herramienta)
+
+    existencia = validar_existencia(inventario,nombre_herramienta)
+    if existencia:
+        raise ValueError(f"La herramienta {nombre_herramienta} ya existe en el inventario.")
+   
+    
+    cantidad = int(input(f"Ingrese la cantidad de stock que desea dar de alta de la herramienta {nombre_herramienta}: "))
+    stock = validar_cantidad(cantidad,0)
+
+    inventario.append({'herramienta' : nombre_herramienta, 'cantidad': stock})
+    print("Herramienta agregada con éxito")
+        
+
 
 def actualizar_stock(inventario):
     # Función para actualizar el stock de un producto (venta o ingreso)
-    pass  # Implementar la lógica de actualización de stock
+    if len(inventario) == 0:
+        print("El inventario está vacío.")
+        return
+        
+    nombre_herramienta = input("Ingrese el nombre de la herramienta cuyo stock desea actualizar: ")
+    nombre_herramienta = validar_nombre(nombre_herramienta)
+    producto = buscar_herramienta(inventario, nombre_herramienta)
+    if producto == None :
+        print("La herramienta ingresada no existe en el inventario.")
+        return
+
+    movimiento = input("¿Qué desea registrar? \n 1) Venta \n 2) Ingreso \n Elija una opción >> ")
+    if movimiento != '1' and movimiento != '2' :
+        print("No se seleccionó ninguna opción válida.")
+        return
+
+    cantidad = int(input("Ingrese la cantidad de unidades: "))
+    cantidad = validar_cantidad(cantidad,1)
+
+    stock_real = int(producto['cantidad'])
+
+    if movimiento == '1' :
+        if stock_real < cantidad:
+            raise ValueError(f"La herramienta {producto['herramienta']} no tiene suficiente stock.")
+        else:
+            nuevo_stock = stock_real - cantidad
+            producto['cantidad'] = nuevo_stock
+            print(f"Venta registrada: {cantidad} unidades de {producto['herramienta']}. Stock actual: {producto['cantidad']}.")
+            return
+
+    if movimiento == '2' :
+        nuevo_stock = stock_real + cantidad
+        producto['cantidad'] = nuevo_stock
+        print(f"Ingreso registrado: {cantidad} unidades de {producto['herramienta']}. Stock actual: {producto['cantidad']}.")
+        return
+
 
 # ----- FUNCIONES AUXILIARES DE VALIDACION -----
 
 def validar_cantidad(cantidad, minimo):
     # Función para validar la cantidad ingresada
     if cantidad < minimo:
-        raise ValueError(f"El valor ingresado deber ser mayor o igual a {minimo}.")
+        raise ValueError(f"El valor ingresado debe ser mayor o igual a {minimo}.")
     return cantidad
 
 def validar_nombre (herramienta):
@@ -93,10 +151,15 @@ def validar_existencia (inventario, herramienta):
             return True
     return False
 
+def buscar_herramienta(inventario, nombre):
+    for producto in inventario:
+        if producto['herramienta'].lower() == nombre.strip().lower():
+            return producto
+    return None
 
 
 
-# Código principal del sistema de inventario
+# ------ CÓDIGO PRINCIPAL DEL SISTEMA DE INVENTARIO -----
 def main(): 
 
     print("===== Bienvenido al Sistema de control de Inventario =====")
@@ -109,8 +172,8 @@ def main():
         print("2. Visualización del inventario")
         print("3. Consulta de stock")
         print("4. Reporte de agotados")
-        print("5. Alta de nuevo Producto")
-        print("6. Actualizacion de stock (venta / ingreso)")
+        print("5. Alta de nuevo producto")
+        print("6. Actualización de stock (venta / ingreso)")
         print("7. Salir")
         try:
             opcion = int(input("Seleccione una opción: "))
