@@ -15,6 +15,7 @@ Cada carpeta es una unidad de la materia. Adentro están los ejercicios de esa u
 | `06_Funciones` | Armar bloques de código reutilizables |
 | `07_Datos_Complejos` | Diccionarios, conjuntos (`set`) y tuplas |
 | `08_Manejo_de_Errores` | Atrapar errores con `try` / `except` / `else` / `finally` |
+| `Trabajo_Practico_Integrador` | Sistema de control de inventario para una ferretería (TPI) |
 
 ## 📂 Ejercicios por unidad
 
@@ -107,6 +108,22 @@ Cuando algo sale mal (por ejemplo, dividir por un texto o pedir un elemento que 
 | 06 | Pide un número y avisa si lo ingresado no es válido |
 | 07 | Igual que el 06, pero deja volver a intentar hasta ingresar un número válido |
 
+### 🧰 Trabajo Práctico Integrador — Sistema de Control de Inventario
+Programa de consola que controla el inventario de una ferretería con un menú interactivo. Junta todo lo visto en la materia: listas de diccionarios, funciones repartidas en varios archivos (paquetes), validaciones y manejo de errores con `try` / `except` y `raise`.
+
+| Opción del menú | Qué hace |
+|---|---|
+| 1 | Carga varias herramientas con su stock inicial |
+| 2 | Muestra todo el inventario |
+| 3 | Consulta el stock de una herramienta |
+| 4 | Lista las herramientas agotadas |
+| 5 | Da de alta un producto nuevo |
+| 6 | Registra una venta o un ingreso de stock |
+| 7 | Sale del programa |
+
+- `sistema_de_inventario/` — código del programa (se ejecuta desde `main.py`). Tiene su propio [README](Trabajo_Practico_Integrador/sistema_de_inventario/README.md) con la estructura y el detalle de cada función.
+- `TPI Informe - Programacion 1.pdf` — informe escrito del trabajo.
+
 > Voy a ir sumando nuevas carpetas a medida que avance la cursada.
 
 ## ▶️ Cómo correr un ejercicio
@@ -120,6 +137,13 @@ python3 "07_Datos_Complejos/Ejercicio_01.py"
 ```
 
 Cambiá la ruta por la del ejercicio que quieras probar. Muchos ejercicios te van a pedir que escribas datos.
+
+Para el Trabajo Práctico Integrador hay que entrar a su carpeta, porque `main.py` importa los demás archivos:
+
+```bash
+cd Trabajo_Practico_Integrador/sistema_de_inventario
+python3 main.py
+```
 
 ## 👤 Autor
 

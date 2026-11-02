@@ -15,10 +15,16 @@ Programa de consola, escrito en Python, que controla el inventario de una ferret
 
 ## Cómo ejecutarlo
 
-Desde una terminal, dentro de esta carpeta:
+Desde una terminal, dentro de la carpeta `sistema_de_inventario` (la misma donde está este archivo):
 
 ```bash
-cd sistema_de_inventario
+python3 main.py
+```
+
+Si estás en la carpeta principal del repositorio, primero entrá a esta carpeta:
+
+```bash
+cd Trabajo_Practico_Integrador/sistema_de_inventario
 python3 main.py
 ```
 
