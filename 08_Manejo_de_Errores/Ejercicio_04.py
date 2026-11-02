@@ -3,11 +3,13 @@ a = 10
 b = input("Introduce un número: ")
 #Corrección 1: en lugar de un except general, se usa un except para cada tipo de error posible en la división.
 try:
+    #input() siempre devuelve un string, por eso se convierte a número dentro del try.
+    b = float(b)
     result = a / b
     print(f"Resultado: {result}")
-#Atrapa el error detectado: 'b' es un string y no se puede dividir.
-except TypeError:
-    print("Error de tipo: no se puede dividir un número por un texto.")
+#Atrapa el caso en que lo ingresado no se pueda convertir a número.
+except ValueError:
+    print("Error de valor: debes ingresar un número válido.")
 #Atrapa el caso en que el divisor sea 0.
 except ZeroDivisionError:
     print("Error: no se puede dividir por cero.")
